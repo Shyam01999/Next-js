@@ -1,8 +1,17 @@
+'use client'
 import Image from "next/image";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 export default function Home() {
+  const router = useRouter();
+
+  const handleNavigate = () => {
+    router.push("home")
+  }
+
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
+    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center  p-8 pb-20  sm:p-20 font-[family-name:var(--font-geist-sans)]">
       {/* <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
         <Image
           className="dark:invert"
@@ -97,6 +106,19 @@ export default function Home() {
         </a>
       </footer> */}
       <h1>Welcome to Next js series</h1>
+      <Link href={"home"}>Navigate to home page</Link>
+      <Link href={"services"}>Navigate to services page</Link>
+      <Link href={"services/webdevelopment/frontend-development"}>Navigate to services nested page</Link>
+      <Link href={"product"}>Navigate to product page</Link>
+      <Link href={"product/1"}>Navigate to products details page</Link>
+      <Link href={"about"}>Navigate to about page</Link>
+
+      <h1>Alternative way to navigate to different page using userouter</h1>
+
+      <button onClick={handleNavigate}>Navigate to home page using useRouter</button>
+
+
+
     </div>
   );
 }
